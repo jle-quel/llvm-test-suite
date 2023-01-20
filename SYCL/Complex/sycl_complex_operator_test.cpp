@@ -119,12 +119,11 @@ test_op_assign(test_div_assign, /=);
     }                                                                          \
   };
 
-test_op_unary(test_unary_plus, +)
-test_op_unary(test_unary_minus, -)
+test_op_unary(test_unary_plus, +) test_op_unary(test_unary_minus, -)
 
 #undef test_op_unary
 
-int main() {
+    int main() {
   sycl::queue Q;
 
   bool test_passes = true;

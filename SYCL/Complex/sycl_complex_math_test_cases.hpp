@@ -74,7 +74,8 @@ template <template <typename> typename test_struct> struct cplx_test_cases {
 // sycl_complex_math_test.cpp
 // Values are stored in the highest precision type, in this case that is double
 
-template <template <typename, typename> typename test_struct> struct deci_test_cases {
+template <template <typename, typename> typename test_struct>
+struct deci_test_cases {
   // Default test cases
   static vector<double> std_test_values;
   static vector<tuple<double, double>> comp_test_values;
@@ -130,8 +131,8 @@ vector<double> deci_test_cases<test_struct>::std_test_values = {
 };
 
 template <template <typename, typename> typename test_struct>
-vector<tuple<double, double>>
-    deci_test_cases<test_struct>::comp_test_values = {};
+vector<tuple<double, double>> deci_test_cases<test_struct>::comp_test_values =
+    {};
 
 // test_acos
 template <> const char *cplx_test_cases<test_acos>::test_name = "acos test";
@@ -320,9 +321,9 @@ const char *deci_test_cases<test_deci_deci_arg>::test_name = "arg test";
 
 template <>
 vector<double> deci_test_cases<test_deci_deci_arg>::std_test_values = {
-  4.42,
-  2.02,
-  INFINITYd,
+    4.42,
+    2.02,
+    INFINITYd,
 };
 
 // test norm

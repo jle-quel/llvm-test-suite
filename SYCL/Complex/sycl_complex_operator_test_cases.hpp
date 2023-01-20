@@ -79,8 +79,7 @@ template <>
 const char *test_cases<test_div_assign>::test_name = "division assign test";
 
 // test_unary_plus
-template <>
-const char *test_cases<test_unary_plus>::test_name = "unary + test";
+template <> const char *test_cases<test_unary_plus>::test_name = "unary + test";
 
 // test_unary_minus
 template <>
