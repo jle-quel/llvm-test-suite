@@ -102,38 +102,6 @@ struct deci_test_cases {
   }
 };
 
-// Stores test cases for each math decimal-complex function used in
-// sycl_complex_math_test.cpp
-// Values are stored in the highest precision type, in this case that is double
-
-template <template <typename, typename> typename test_struct>
-struct deci_test_cases {
-  // Default test cases
-  static vector<double> std_test_values;
-  static vector<tuple<double, double>> comp_test_values;
-
-  static const char *test_name;
-
-  bool operator()(sycl::queue &Q) {
-    bool test_passes = true;
-
-    for (auto &test_value : std_test_values) {
-      test_passes &= test_valid_types<test_struct>(Q, test_value);
-    }
-
-    for (auto &test_tuple : comp_test_values) {
-      test_passes &= test_valid_types<test_struct>(Q, std::get<0>(test_tuple),
-                                                   std::get<1>(test_tuple),
-                                                   /*use_ref*/ true);
-    }
-
-    if (!test_passes)
-      std::cerr << test_name << " failed\n";
-
-    return test_passes;
-  }
-};
-
 template <template <typename> typename test_struct>
 vector<cmplx<double>> cplx_test_cases<test_struct>::std_test_values = {
     cmplx(1, 1),
