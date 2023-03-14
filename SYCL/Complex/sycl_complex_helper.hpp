@@ -33,7 +33,7 @@ template <> const char *get_typename<double>() { return "double"; }
 template <> const char *get_typename<float>() { return "float"; }
 template <> const char *get_typename<sycl::half>() { return "sycl::half"; }
 
-/// Helper to test each complex specilization
+// Helper to test each complex specilization
 
 // Overload for cplx_test_cases
 template <template <typename> typename action, typename... argsT>
